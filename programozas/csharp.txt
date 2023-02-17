@@ -1,23 +1,20 @@
-class Versenytav
+class Versenyzo
 {
-    private string Rajtszam; 
-    public string Tav
+    public string Csapat { get; set; }
+    public int Ido { get; set; }
+
+    public Versenyzo(string csapat, string ido)
     {
-        get
-        {
-            switch (Rajtszam[0])
-            {
-                case 'M': return "Mini";
-                case 'R': return "Rövid";
-                case 'K': return "Közép";
-                case 'H': return "Hosszú";
-                case 'E': return "Pedelec";
-            }
-            return "Hibás rajtszám";
-        }
-    }
-    public Versenytav(string rajtszam)
-    {
-        Rajtszam = rajtszam;
+        this.Csapat = csapat;
+
+        string[] idoTomb = ido.Split(':');
+        int ora = 3600 * Int32.Parse(idoTomb[0]);
+        int perc = 60 * Int32.Parse(idoTomb[1]);
+        int masodPerc = Int32.Parse(idoTomb[2]);
+        this.Ido = ora + perc + masodPerc;
     }
 }
+
+1. Feladat: Hány százalék a női versenyzők aránya?
+2. Feladat: A Superior MTB Team hány férfi versenyzőt nevezett összesen? 
+3. Feladat: Csapatonként hány versenyző vett részt a versenyeken? 
